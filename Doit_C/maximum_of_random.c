@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-int find_maximum_value(const int h[], int h_size)
+int find_maximum_value(int* h, int num)
 {
+    // h가 height의 주소를 받아서 배열을 사용할 수 있지만, num 대신에 sizeof(h)/sizeof(int)는 안됨 (sizeof(h) == sizeof(int*)가 됨)
     int i;
     int max = h[0];
 
-    for(i = 1; i< h_size; i++)
+    for(i = 1; i< num; i++)
     {
         if(h[i]> max)
         {
@@ -37,8 +38,8 @@ int main(void)
     }
     
     maximum_height = find_maximum_value(height, num_of_people);
-    printf("maximum height is %d. \r",maximum_height);
+    printf("maximum height is %d. \n",maximum_height);
     free(height);
-    
+
     return 0;
 }//main()
