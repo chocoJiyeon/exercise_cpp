@@ -1,0 +1,51 @@
+//#2309
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int i,j,k,a;
+    int sum=0;
+    int h[9];
+    
+    for(i=0; i<9; i++)
+    {
+        cin>>h[i];
+    }
+    sort(h,h+9);
+    
+    for(i=0; i<9; i++)
+    {
+        for(j=0; j<9; j++)
+        {
+            if(i!=j)
+            {
+            	sum = 0;
+                for(k=0; k<9; k++)
+                {
+                    if(k!=i && k!=j)
+                    {
+                        sum = sum + h[k];
+                    }//if
+                }//for k
+                
+                 if(sum == 100) 
+	               {
+                    for(a=0; a<9; a++)
+                    {
+                        if(a!=i && a!=j)
+                        {
+                            cout<<h[a]<<'\n';
+                        }
+                    }
+                    break;
+                  }
+            }//if
+           
+        }//for j
+        if(sum == 100) break;
+    }//for i
+    return 0;
+}
+
+//////////////////////////////////////////
