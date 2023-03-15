@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int sum;
+int cnt[100];
+int coin[3];
+
+int main()
+{
+	int hi,bye;
+	cin>>coin[0]>>coin[1]>>coin[2];
+	for(int i=0; i<3; i++)
+	{
+		cin>>hi>>bye;
+		for(int j=hi; j<bye; j++) 
+		{
+			cnt[j]++;
+		}
+	}
+	
+	for(int i=0; i<100; i++)
+	{
+		sum+= cnt[i]*coin[cnt[i]-1];
+	}
+	cout<<sum;
+	
+	return 0;
+} 
+////////////////////////////////
+//for make it faster,,
+
+//for(int i=0; i<100; i++)
+//{
+//  if(cnt[i]) sum+= cnt[i]*coin[cnt[i]-1];
+//}
