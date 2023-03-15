@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	string s;
+	string result = "";
+	
+	getline(cin,s);
+	for(int i=0; i<s.length(); i++)
+	{
+		if(s[i]>='A' && s[i]<'A'+26)
+		{
+			if(s[i]+13 >='A'+26) result += (s[i]-13);
+			else result += (s[i]+13);
+		}
+		else if(s[i]>='a' && s[i]<'a'+26)
+		{
+			if(s[i]+13 >='a'+26) result += (s[i]-13);
+			else result += (s[i]+13);
+		}
+		else result += s[i];
+	}
+	cout<< result;
+	
+	return 0;
+}
