@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int N,star;
+	string s,f,e,file;
+	
+	cin>>N;
+	cin>>s;
+	star = s.find('*');
+	f = s.substr(0,star);
+	e = s.substr(star+1,s.length());
+
+	for(int i=0; i<N; i++)
+	{
+		cin>>file;
+		if(f.size()+ e.size()>file.size())
+		{
+			cout<<"NE"<<'\n';
+		}
+		else
+		{
+			if(file.substr(0,f.size())==f && file.substr(file.size()-e.size(), file.size())==e)
+			{
+				cout<<"DA"<<'\n';
+			}
+			else cout<<"NE"<<'\n';
+		}
+		
+	}
+	
+	return 0;
+}
+//////////////////////////////////
+//if(file.substr(0,f.size())==f && file.substr(file.size()-e.size())==e)
