@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int t,n;
+	string a,b;
+	
+	cin>>t;
+	for(int i=0; i<t; i++)
+	{
+		map<string, int> c;
+		long long ret =1;
+		cin>>n;
+		for(int j=0; j<n; j++)
+		{
+			cin>>a>>b;
+			c[b]++;
+		}
+		for(auto x : c)
+		{
+			ret *= ((long long)x.second + 1);
+		}
+		cout<<ret-1<<'\n';
+	}
+	
+	return 0;
+}
