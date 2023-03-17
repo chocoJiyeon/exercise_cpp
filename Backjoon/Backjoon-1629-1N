@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int A,B,C;
+
+long long divv(long long a,long long b)
+{
+	if(b==1) return a % C;
+	long long ret = divv(a, b/2);
+	ret = (ret * ret)%C;
+	if(b%2) ret = (ret * a) % C;
+	return ret;
+}
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	cin>>A>>B>>C;
+	cout<<divv(A,B);
+}
