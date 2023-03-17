@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int n,m,x,cnt;
+int num[15001];
+
+int main()
+{
+	cin>>n;
+	cin>>m;
+	for(int i=0; i<n; i++)
+	{
+		cin>>x;
+		num[i]=x;
+	}
+  if(m>200000) cout<<0;   //except
+  else
+  {
+    for(int i=0; i<n-1;  i++)
+    {
+      for(int j=i+1; j<n; j++)
+      {
+        if(num[i]+ num[j] ==m)
+          cnt++;
+      }
+    }
+    cout<<cnt;
+   }
+}
