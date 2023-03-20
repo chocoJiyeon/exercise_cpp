@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int n;
+
+int main()
+{
+	while(scanf("%d",&n) != EOF)  //계속 입력 받을 때
+	{
+		int i = 1;
+		long long one = 0;
+		while(1)
+		{
+			one = one * 10 + 1;
+			one %= n;
+			if(one % n == 0)
+			{
+				cout<<i<<'\n';
+				break;
+			}
+			i++;
+		}
+	}
+	
+}
