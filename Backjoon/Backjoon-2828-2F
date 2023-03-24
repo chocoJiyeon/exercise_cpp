@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int M,N,J,ret;
+int p[21];
+
+int main()
+{
+	cin>>N>>M;
+	cin>>J;
+	for(int i=1; i<=J; i++)
+	{
+		cin>>p[i];
+	}
+	
+	int front =1;
+	for(int i=1; i<=J; i++)
+	{
+		if(p[i]<front)
+		{
+			ret += (front - p[i]);
+			front = p[i];
+		}
+		else if((front+M-1)<p[i])
+		{
+			ret += (p[i]-front-M+1);
+			front = p[i]-M+1;
+		}
+	}
+	cout<<ret;
+}
