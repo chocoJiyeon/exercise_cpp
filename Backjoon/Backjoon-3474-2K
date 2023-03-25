@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int t,n,ret;
+
+int main()
+{
+	ios_base::sync_with_stdio(false); //for timeover
+	cin.tie(NULL); cout.tie(NULL);
+	cin>>t;
+	for(int i=0; i<t; i++)
+	{
+		cin>>n;
+		while(n>=5)
+		{
+			n=n/5;
+			ret+=n;
+		}
+		cout<<ret<<'\n';
+		ret=0;
+	}
+}
