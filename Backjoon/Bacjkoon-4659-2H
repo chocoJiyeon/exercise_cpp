@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string pw;
+int main()
+{
+	cin>>pw;
+	while(pw!="end")
+	{
+		bool flag = false, is_mo = false;
+		int mo =0, ja=0;
+		for(int i=0; i<pw.size(); i++)
+		{
+			if(pw[i]=='a'||pw[i]=='e'||pw[i]=='i'||pw[i]=='o'||pw[i]=='u')
+			{
+				mo++; ja=0; is_mo=true;
+			}
+			else
+			{
+				mo=0; ja++;
+			}
+			if(mo==3 ||ja==3) flag = 1;
+			if(i>=1 && pw[i-1]==pw[i] && (pw[i]!='e'&&pw[i]!='o')) flag=1;
+		}
+		if(!is_mo) flag=1;
+		
+		if(flag) cout<<'<'<< pw<<"> is not acceptable.\n";
+		else cout<<'<'<< pw<<"> is acceptable.\n";
+		cin>>pw;
+	}
+	
+	
+}
