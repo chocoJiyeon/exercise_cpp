@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int n,x,ttime;
+int s[3],win[2],score[3];
+string t;
+
+int main()
+{
+	cin>>n;
+	for(int i=0; i<n; i++)
+	{
+		cin>>x>>t;
+		score[x]++;
+		ttime = atoi(t.substr(0,2).c_str())*60 + atoi(t.substr(3,2).c_str());
+		if(win[0]==0)	//이전 이긴팀이 없을때 
+		{
+			win[0]=x; win[1]=ttime;
+		}
+		else
+		{
+			if(win[0]!=x)
+			{
+				if(score[x]>score[3-x])
+				{
+					s[win[0]] += ttime-win[1];
+					win[0]=x;
+					win[1]=ttime;
+				}
+				else if(score[x]==score[3-x])	//동점 
+				{
+					s[win[0]] += ttime-win[1];
+					win[0]=0;
+					win[1]=ttime;
+				}
+			}
+		}
+	}
+	s[win[0]] += 48*60-win[1];
+	printf("%02d:%02d\n",s[1]/60, s[1]%60);
+	printf("%02d:%02d\n",s[2]/60, s[2]%60);
+}
