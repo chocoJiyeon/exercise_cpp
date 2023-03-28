@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int n,m,a[51][51],visited[51][51],mx,x,y;
+string s;
+int dy[] = {-1,0,1,0};
+int dx[] = {0,1,0,-1};
+
+int main()
+{
+	cin>>n>>m;
+	for(int i=0; i<n; i++)
+	{
+		cin>>s;
+		for(int j=0; j<m; j++)
+		{
+			if(s[j]=='L') a[i][j]=1;
+			else a[i][j]=0;
+		}
+	}	
+	
+	for(int i=0; i<n; i++)
+	{
+		for(int j=0; j<m; j++)
+		{
+			if(a[i][j]==1)
+			{
+				memset(visited, 0, sizeof(visited)); 
+				queue<pair<int,int>> q;
+				visited[i][j]=1;
+				q.push({i,j});
+				while(q.size())
+				{
+					tie(y,x)=q.front();
+					q.pop();
+					for(int k=0; k<4; k++)
+					{
+						int ny = y + dy[k];
+						int nx = x + dx[k];
+						if(ny<0||nx<0|| ny>=n||nx>=m) continue;
+						if(visited[ny][nx]) continue;
+						if(a[ny][nx]==1)
+						{
+							visited[ny][nx]= visited[y][x]+1;
+							q.push({ny,nx});
+							mx = max(mx,visited[ny][nx]);
+						}
+					}
+				}	
+			}
+		}
+	}
+	cout<<mx-1;	//칸 수가 아니라 사이 거리라서 -1 
+}
